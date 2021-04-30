@@ -1,0 +1,93 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.images {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.photo {
+  width: 100%;
+}
+.floating-banner {
+  position: fixed; /* 追従 */
+  z-index: 99999; /* 他の要素の下に隠れないように */
+  top: 80%; /* バナーの上下の位置 */
+  right: 30%; /* バナーの左右の位置 */
+}
+.pc {
+  width: 500px; /* バナーの横幅を指定 */
+}
+.floating-banner:hover {
+  opacity: 0.8; /* ホバーで少し透過 */
+}
+.sp {
+  display: none; /* PCではスマホ用のバナーは非表示に */
+}
+
+#footer {
+  text-align: center;
+  padding: 50px 0;
+  padding-bottom: 150px;
+}
+.inner {
+  width: 100;
+  margin: 0 auto;
+  border: none;
+}
+.lp-contents #footer ul {
+  margin-bottom: 20px;
+}
+#footer ul li {
+  display: inline;
+  padding: 0 15px;
+}
+
+@media screen and (max-width: 990px) {
+  /* タブレット用のブレイクポイントを指定 */
+
+  .sp {
+    display: none; /* 消していたスマホ用のバナーを表示させる */
+  }
+  .floating-banner {
+    position: fixed; /* 追従 */
+    z-index: 99999; /* 他の要素の下に隠れないように */
+    top: 80%; /* バナーの上下の位置 */
+    left: 20%; /* バナーの左右の位置 */
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .pc {
+    display: none; /* 消していたスマホ用のバナーを表示させる */
+  }
+  /* スマホ用のブレイクポイントを指定 */
+  .sp {
+    display: inline-block; /* 消していたスマホ用のバナーを表示させる */
+    width: 100vw; /* スマホの画面幅いっぱいにバナーを表示 */
+  }
+  .floating-banner {
+    top: unset; /* PCで指定していた上下の位置指定をクリア */
+    right: 0; /* 左右の隙間が空かないように */
+    bottom: 0; /* 画面の最下部にぴったりくっつくように指定 */
+    left: 0;
+  }
+  #footer ul li {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+  }
+  #footer {
+    text-align: center;
+    padding: 50px 0;
+    padding-bottom: 80px;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+}
